@@ -82,7 +82,7 @@ Simply add a struff.sh file in your project.
 
 Some rules on what's going on when running this script : 
 * Current user has limited rights
-* Current user **can use docker** (that' how you build your pipeline)
+* Current user **can use docker** (that's how you build your pipeline)
 * Current working directory is root of checkout sources
 * To use ref to local directory on volumn mount for docker, you can use /project
 * For instance root folder you can use /instance
@@ -114,19 +114,19 @@ With docker run command in the struff "closed" environment, you can build whatev
 
 **Here the content of the docker-compose.yml copied by pipeline**
 
-version: '2'
+    version: '2'
 
-services:
-    param-gest:
-        image: my-project:latest
-        restart: always
-        ports:
-        - 8080:8080
-        volumes:
-        - /instance/application.yml:/cfg/application.yml:ro
-        - /instance/logs:/tmp
-        - /instance/tmp:/logs
-        container_name: my-project-struff
+    services:
+        param-gest:
+            image: my-project:latest
+            restart: always
+            ports:
+            - 8080:8080
+            volumes:
+            - /instance/application.yml:/cfg/application.yml:ro
+            - /instance/logs:/tmp
+            - /instance/tmp:/logs
+            container_name: my-project-struff
 
 ## Running pipeline script standalone
 
